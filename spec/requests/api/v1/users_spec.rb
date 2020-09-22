@@ -27,8 +27,8 @@ describe 'User endpoint post' do
 
     it 'cannot create a new user with invalid attributes' do
       expect { post '/api/v1/users', params: invalid_params }.to_not change(User, :count)
-      expect(response).to have_http_status(400)
-      expect(response.body).to eq('Please try again')
+      expect(response).to have_http_status(404)
+      expect(response.body).to eq("Password confirmation doesn't match Password")
     end
   end
 end
