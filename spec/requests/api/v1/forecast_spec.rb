@@ -19,13 +19,15 @@ describe "Forecast API Endpoint for Location" do
       expect(forecast[:data][:attributes][:daily][0]).to be_a(Hash)
       expect(forecast[:data][:attributes][:daily].length).to eq(5)
   end
-    xit 'returns error with invalid or empty request' do
-      get '/api/v1/forecast?location='
 
-      expect(response).to have_http_status(400)
+  it 'returns error with invalid or empty request' do
+    get '/api/v1/forecast?location='
 
-      forecast = JSON.parse(response.body)
-      expect(forecast["error"]).not_to be_empty
-      expect(forecast["error"]).to eq("Invalid request or no results found.")
-    end
+    expect(response).to have_http_status(400)
+
+    forecast = JSON.parse(response.body)
+    expect(forecast["error"]).not_to be_empty
+    expect(forecast["error"]).to eq("Invalid request or no results found.")
+  end
+  
 end

@@ -9,15 +9,23 @@ class Location
 
   def get_lat_lng(location)
     info = MapService.get_location(location)
-    info[:results][0][:locations][0][:latLng]
+    if info[:info][:statuscode] == 400
+      nil
+    else
+      info[:results][0][:locations][0][:latLng]
+    end
   end
 
   def get_formatted_name(location)
     info = MapService.get_location(location)
-    info[:results].first[:locations].first[:adminArea5] +
+    if info[:info][:statuscode] == 400
+      nil
+    else
+      info[:results].first[:locations].first[:adminArea5] +
       ', ' +
       info[:results].first[:locations].first[:adminArea3] +
       ' ' +
       info[:results].first[:locations].first[:adminArea1]
+    end
   end
 end
