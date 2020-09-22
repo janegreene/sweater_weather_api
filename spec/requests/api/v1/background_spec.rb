@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "background API" do
   it "send a background image" do
-      get api_v1_background_index_path(params: { location: "denver, co" })
+      get api_v1_backgrounds_path(params: { location: "denver, co" })
 
       expect(response).to be_successful
       expect(response.status).to eq(200)
@@ -14,8 +14,8 @@ describe "background API" do
       expect(background[:data][:attributes]).to have_key(:location)
   end
 
-  xit 'returns error with invalid or empty request' do
-    get '/api/v1/background?location='
+  it 'returns error with invalid or empty request' do
+    get '/api/v1/backgrounds?location='
 
     expect(response).to have_http_status(400)
 
