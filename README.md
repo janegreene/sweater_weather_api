@@ -14,7 +14,7 @@ git clone git@github.com:janegreene/sweater_weather_api.git
 ```
 #### Navigate into directory:
 ```javascript
-cd monster_shop_2003
+cd sweater_weather_api
 ```
 #### Install gems:
 ```javascript
@@ -39,13 +39,13 @@ bundle exec rspec
 example response for this request: `GET '/api/v1/backgrounds?location=denver+co'`
 
     `{ "data": {
-"id": null,
-"type": "background",
-"attributes": {
-"id": null,
-"url": "https://pixabay.com/get/53e3d0474e55ab14f1dc846096293f7c123bdfe1504c704f752f73d69f4ac55c_640.jpg",
-"source": "Pixabay",
-"location": "denver"}}}`
+        "id": null,
+        "type": "background",
+        "attributes": {
+        "id": null,
+        "url": "https://pixabay.com/get/53e3d0474e55ab14f1dc846096293f7c123bdfe1504c704f752f73d69f4ac55c_640.jpg",
+        "source": "Pixabay",
+        "location": "denver"}}}`
 
 `GET '/api/v1/forecast?location=<city>,<state>'`
 
