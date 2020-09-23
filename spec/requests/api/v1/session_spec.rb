@@ -36,5 +36,18 @@ RSpec.describe 'session endpoint post' do
       expect(json[:error]).to eq("Invalid password")
       expect(json[:status]).to eq(401)
     end
+
+    it 'cannot create a without a user' do
+      no_user = {
+        "email": 'nah_dog',
+        "password": 'passwordz'
+      }
+      post '/api/v1/login', params: no_user
+      expect(response).to have_http_status(404)
+      json = JSON.parse(response.body, symbolize_names: true)
+
+      expect(json[:error]).to eq('Invalid Credentials')
+      expect(json[:status]).to eq(404)
+    end
   end
 end
