@@ -1,6 +1,7 @@
 class Api::V1::BackgroundsController < ApplicationController
   def index
-    background = BackgroundService.get_image(params['location'])
+    city = params[:location].split(',')[0]
+    background = BackgroundService.get_image(city, params)
     if background.nil? || background.location == ''
       render json: {error: "Invalid request or no results found."}, status: 400
     else

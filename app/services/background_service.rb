@@ -1,6 +1,5 @@
 class BackgroundService
-  def self.get_image(location_params)
-    location = location_params.gsub(/[,.!]/, '').split[0]
+  def self.get_image(location, location_params)
     json = JSON.parse(response(location).body, symbolize_names: true)
     image_data = json[:hits][0]
     if image_data.nil?
