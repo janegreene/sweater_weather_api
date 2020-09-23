@@ -23,7 +23,8 @@ describe 'Road trip endpoint post' do
     expect(trip[:data][:type]).to eq('road_trip')
     expect(trip[:data][:attributes][:origin]).to eq('Denver,CO')
     expect(trip[:data][:attributes][:destination]).to eq('Pueblo,CO')
-    expect(trip[:data][:attributes][:temperature]).to be_a(Float)
+    expect(trip[:data][:attributes]).to have_key(:temperature)
+    expect(trip[:data][:attributes]).to have_key(:duration)
     expect(trip[:data][:attributes][:description]).to be_a(String)
   end
   it 'returns error without user' do
