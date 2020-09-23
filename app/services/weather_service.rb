@@ -11,6 +11,17 @@ class WeatherService
     JSON.parse(response.body, symbolize_names: true)
   end
 
+  def self.get_destination_weather(lat, long)
+    response = conn.get("/data/2.5/onecall") do |faraday|
+      faraday.params['lat'] = lat
+      faraday.params['lon'] = long
+      faraday.params["units"] = "imperial"
+      faraday.params["exclude"] = "minutely"
+    end
+
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
 private
 
   def self.conn
