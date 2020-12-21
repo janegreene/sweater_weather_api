@@ -38,20 +38,20 @@ bundle exec rspec
 
 example response for this request: `GET '/api/v1/backgrounds?location=denver+co'`
 
-    `{ "data": {
+    ```{ "data": {
         "id": null,
         "type": "background",
         "attributes": {
         "id": null,
         "url": "https://pixabay.com/get/53e3d0474e55ab14f1dc846096293f7c123bdfe1504c704f752f73d69f4ac55c_640.jpg",
         "source": "Pixabay",
-        "location": "denver"}}}`
+        "location": "denver"}}}```
 
 `GET '/api/v1/forecast?location=<city>,<state>'`
 
 example response for this request: `GET '/api/v1/forecast?location=denver,co'`
 
-      `{ "data": {
+      ```{ "data": {
                   "id": null,
                   "type": "forecast",
                   "attributes": {
@@ -159,7 +159,7 @@ example response for this request: `GET '/api/v1/forecast?location=denver,co'`
                   "time": " 3:00 AM",
                   "temp": 68.22,
                   "icon": "01n"}]}}
-                  }`
+                  }```
 
 ___
 
@@ -167,7 +167,7 @@ ___
 
 example response for this request: `POST '/api/v1/users?email=whatever@example.com&password=password&password_confirmation=password'`
 
-      `{
+      ```{
     "data": {
         "id": "3",
         "type": "user",
@@ -176,7 +176,7 @@ example response for this request: `POST '/api/v1/users?email=whatever@example.c
             "api_key": "2c590b41-c98f-4cf1-94df-76492a86b813"
         }
     }
-}`
+}```
 
 ___
 
@@ -184,14 +184,14 @@ ___
 
 example response for this request: `'/api/v1/login?email=whatever@example.com&password=password'`
 
-      `{
+      ```{
     "data": {
         "id": "2",
         "type": "user",
         "attributes": {
             "email": "whatever@example.com",
             "api_key": "9de69c57-3c13-4cb6-82a8-c3f8b286f03f"
-        }}}`
+        }}}```
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 example response for this request: `POST '/api/v1/road_trip?origin=denver,co&destination=pueblo,co&api_key=<api_key>'`
 
-    `{ "data": {
+    ```{ "data": {
         "id": null,
         "type": "road_trip",
         "attributes": {
@@ -208,4 +208,4 @@ example response for this request: `POST '/api/v1/road_trip?origin=denver,co&des
             "duration": "2 hour(s)",
             "temperature": 71.44,
             "description": "few clouds"
-        }}}`
+        }}}```
